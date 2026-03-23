@@ -1,0 +1,1 @@
+# Waveshare-ESP32-P4-86-Panel-ETH-2RO-Alarmo-Card
