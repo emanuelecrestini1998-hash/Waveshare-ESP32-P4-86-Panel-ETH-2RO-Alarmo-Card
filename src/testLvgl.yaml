@@ -1,0 +1,161 @@
+image: !include common/images.yaml
+font: !include common/fonts.yaml
+color: !include common/colors.yaml
+substitutions: !include common/substitutions.yaml
+
+esphome:
+  name: simulatore-waveshare
+
+# RIMUOVI o COMMENTA QUESTO:
+# esp32:
+#   board: esp32-p4-ev-board
+
+# AGGIUNGI QUESTO:
+host:
+
+display:
+  - platform: sdl
+    id: my_display
+    dimensions: 720x720
+
+# Configurazione LVGL semplificata per il test
+lvgl:
+  pages:
+    - id: alarmo_card_page
+      bg_color: 0x000000 # Nero
+      widgets:
+        - obj:
+            id: alarmo_card_page_keypad
+            x: 15
+            y: 15
+            width: 450
+            height: 595
+            pad_all: 0
+            align: top_left
+            bg_color: color_slate_blue_gray
+            shadow_opa: transp
+            border_opa: transp
+            border_width: 0
+            radius: 15
+            widgets: 
+              - buttonmatrix:
+                        id: alarmo_card_keypad_buttonmatrix
+                        width: 435
+                        height: 390
+                        pad_all: 30
+                        bg_opa: transp
+                        border_opa: transp
+                        y: 40
+                        align: center
+                        items:
+                          radius: 45
+                          bg_opa: transp
+                          border_opa: transp
+                          shadow_width: 12
+                          shadow_spread: 3
+                          shadow_ofs_y: 0
+                          shadow_color: color_black
+                          shadow_opa: cover
+                          text_font: montserrat_20
+                          text_color: color_misty_blue
+                          pressed:
+                            bg_color: color_black
+                            shadow_width: 6
+                        pad_column: 75
+                        rows:
+                          - buttons:
+                              - text: 1
+                                control:
+                                  no_repeat: true
+                              - text: 2
+                                control:
+                                  no_repeat: true
+                              - text: 3
+                                control:
+                                  no_repeat: true
+                          - buttons:
+                              - text: 4
+                                control:
+                                  no_repeat: true
+                              - text: 5
+                                control:
+                                  no_repeat: true
+                              - text: 6
+                                control:
+                                  no_repeat: true
+                          - buttons:
+                              - text: 7
+                                control:
+                                  no_repeat: true
+                              - text: 8
+                                control:
+                                  no_repeat: true
+                              - text: 9
+                                control:
+                                  no_repeat: true
+                          - buttons:
+                              - text: "\uF55A"
+                                key_code: "*"
+                                control:
+                                  no_repeat: true
+                              - text: 0
+                                control:
+                                  no_repeat: true
+                              - text: "\uF00C"
+                                key_code: "#"
+                                control:
+                                  no_repeat: true
+
+                # SYSTEM BUTTONS (DOWN) 
+        - obj:
+            id: menu_controls_background
+            x: 0
+            y: -15
+            width: 690
+            height: 80
+            pad_all: 0
+            align: bottom_mid
+            bg_color: color_slate_blue_gray
+            shadow_opa: transp
+            border_opa: transp
+            border_width: 0
+            radius: 15
+            widgets:
+               # Wi-Fi status
+              - label:
+                  id: wifi_status
+                  align: left_mid
+                  x: 30
+                  text: "${wifi_100_icon}"
+                  text_color: color_steel_blue
+                  text_font: icons_36
+
+              # Home Assistant status
+              - label:
+                  id: ha_status
+                  align: left_mid
+                  x: 90
+                  text: "${ha_icon}"
+                  text_color: color_steel_blue
+                  text_font: mdi_icons_36
+
+
+              - button:
+                  id: settings_widget_btn
+                  clickable: true
+                  x: -15
+                  width: 75
+                  height: 75
+                  align: right_mid
+                  bg_opa: transp
+                  shadow_opa: transp
+                  widgets:
+                    - label:
+                        align: center
+                        text_color: color_misty_blue
+                        text_font: mdi_icons_42
+                        text: "${settings_icon}"
+                  #on_click:
+                  #  - script.execute:
+                  #      id: switch_to_mode
+                  #      target_mode: 3
