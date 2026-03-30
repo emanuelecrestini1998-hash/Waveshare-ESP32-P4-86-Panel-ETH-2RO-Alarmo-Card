@@ -22,7 +22,7 @@ display:
 lvgl:
   pages:
     - id: alarmo_card_page
-      bg_color: 0x000000 # Nero
+      bg_color: color_black
       widgets:
         - obj:
             id: alarmo_card_page_keypad
@@ -37,7 +37,34 @@ lvgl:
             border_opa: transp
             border_width: 0
             radius: 15
-            widgets: 
+            widgets:
+              - label:
+                  y: 25
+                  width: 300
+                  height: 75
+                  id: alarmo_card_keypad_code_label
+                  align: top_mid
+                  text_font: nunito_28
+                  text: "Enter password"
+                  bg_color: color_steel_blue
+                  bg_opa: cover
+                  text_color: color_slate_blue_gray
+                  text_align: center
+                  radius: 20
+                  shadow_width: 12
+                  shadow_spread: 3
+                  shadow_ofs_y: 0
+                  shadow_color: color_black
+                  shadow_opa: cover
+                  pad_top: 15
+              - obj:
+                  width: 180 
+                  height: 2   
+                  bg_color: color_slate_blue_gray 
+                  bg_opa: cover
+                  border_width: 0
+                  align: TOP_MID
+                  y: 85
               - buttonmatrix:
                         id: alarmo_card_keypad_buttonmatrix
                         width: 435
