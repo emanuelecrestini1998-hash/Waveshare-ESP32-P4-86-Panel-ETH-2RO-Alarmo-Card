@@ -50,7 +50,7 @@ lvgl:
                   bg_opa: cover
                   text_color: color_slate_blue_gray
                   text_align: center
-                  radius: 20
+                  radius: 15
                   shadow_width: 12
                   shadow_spread: 3
                   shadow_ofs_y: 0
@@ -67,15 +67,15 @@ lvgl:
                   y: 85
               - buttonmatrix:
                         id: alarmo_card_keypad_buttonmatrix
-                        width: 435
-                        height: 390
-                        pad_all: 30
+                        width: 450
+                        height: 480
+                        pad_all: 20
                         bg_opa: transp
                         border_opa: transp
-                        y: 40
+                        y: 55
                         align: center
                         items:
-                          radius: 45
+                          radius: 40
                           bg_opa: transp
                           border_opa: transp
                           shadow_width: 12
@@ -88,7 +88,8 @@ lvgl:
                           pressed:
                             bg_color: color_black
                             shadow_width: 6
-                        pad_column: 75
+                        pad_column: 40
+                        pad_row: 30
                         rows:
                           - buttons:
                               - text: 1
