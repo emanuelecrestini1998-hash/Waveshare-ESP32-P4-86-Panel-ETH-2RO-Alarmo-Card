@@ -33,3 +33,14 @@
   resize: 60x90  # 40x60 * 1.5
   byte_order: little_endian
   transparency: alpha_channel
+
+  #############################
+  ########### ALARM ############
+  #############################
+
+- file: 'assets/images/alarm/shield-off.png'
+  id: shield_off_img
+  type: rgb565
+  resize: 400x400
+  byte_order: little_endian
+  transparency: alpha_channel

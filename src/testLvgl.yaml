@@ -134,7 +134,40 @@ lvgl:
                                 control:
                                   no_repeat: true
 
-                # SYSTEM BUTTONS (DOWN) 
+        - obj:
+            id: alarmo_card_badge_status
+            x: -15
+            y: 15
+            width: 225
+            height: 225
+            pad_all: 0
+            align: top_right
+            bg_color: color_slate_blue_gray
+            shadow_opa: transp
+            border_opa: transp
+            border_width: 0
+            radius: 15
+            widgets:
+               # Alarm status
+              - label:
+                  id: alarm_status_img
+                  align: center
+                  text: "${shield_disarmed_icon}"
+                  text_color: color_steel_blue
+                  text_font: mdi_icons_78
+        - obj:
+            id: alarmo_card_alarm_buttons
+            x: -15
+            y: 255
+            width: 225
+            height: 355
+            pad_all: 0
+            align: top_right
+            bg_color: color_slate_blue_gray
+            shadow_opa: transp
+            border_opa: transp
+            border_width: 0
+            radius: 15
         - obj:
             id: menu_controls_background
             x: 0
