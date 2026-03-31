@@ -1,0 +1,82 @@
+loading:
+  synchronization: "Synchronization..."
+  connection_api: "Connecting to API..."
+
+ota:
+  start:
+    primary: "Starting OTA!"
+    secondary: "Wait..."
+  end: 
+    primary: "Update complete!"
+    secondary: "Rebooting..."
+  error:
+    primary: "Update ERROR!"
+    secondary: "Rebooting..."
+  progress: "Firmware progress %0.1f%%"
+
+settings:
+  backlight: "Backlight"
+  sleep_time: "Sleep time"
+
+sleep_time:
+  never: "Never"
+  minute1: "1 minute"
+  minute5: "5 minutes" 
+  minute10: "10 minutes"
+  minute30: "30 minutes"
+  hour1: "1 hour"
+  hour6: "6 hours"
+  hour12: "12 hours"
+
+forecasts:
+  daily: "Daily"
+  hourly: "Hourly"
+
+day_of_week:
+  monday: "Monday"
+  tuesday: "Tuesday"
+  wednesday: "Wednesday"
+  thursday: "Thursday"
+  friday: "Friday"
+  saturday: "Saturday"
+  sunday: "Sunday"
+
+day_of_week_short:
+  monday: "MON"
+  tuesday: "TUE"
+  wednesday: "WED"
+  thursday: "THU"
+  friday: "FRI"
+  saturday: "SAT"
+  sunday: "SUN"
+
+month:
+  january: "January"
+  february: "February"
+  march: "March"
+  april: "April"
+  may: "May"
+  june: "June"
+  july: "July"
+  august: "August"
+  september: "September"
+  october: "October"
+  november: "November"
+  december: "December"
+
+alarm_panel:
+  name: "Alarm control panel"
+  enter_pass: "Enter password"
+  wrong_pass: "Wrong password"
+  state:
+    armed: Armed
+    armed_away: Armed away
+    armed_custom_bypass: Armed custom bypass
+    armed_home: Armed home
+    armed_night: Armed night
+    armed_vacation: Armed vacation
+    arming: Arming
+    disarmed: Disarmed
+    disarming: Disarming
+    pending: Pending
+    triggered: Triggered
