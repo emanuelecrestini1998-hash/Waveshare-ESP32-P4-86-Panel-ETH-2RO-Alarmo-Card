@@ -20,6 +20,9 @@ display:
 
 # Configurazione LVGL semplificata per il test
 lvgl:
+  id: lvgl_component
+  buffer_size: 100%
+  byte_order: little_endian
   pages:
     - id: alarmo_card_page
       bg_color: color_black
@@ -41,7 +44,7 @@ lvgl:
               - label:
                   y: 25
                   width: 300
-                  height: 75
+                  height: 65
                   id: alarmo_card_keypad_code_label
                   align: top_mid
                   text_font: nunito_28
@@ -64,15 +67,15 @@ lvgl:
                   bg_opa: cover
                   border_width: 0
                   align: TOP_MID
-                  y: 85
+                  y: 75
               - buttonmatrix:
                         id: alarmo_card_keypad_buttonmatrix
                         width: 450
-                        height: 480
+                        height: 490
                         pad_all: 20
                         bg_opa: transp
                         border_opa: transp
-                        y: 55
+                        y: 45
                         align: center
                         items:
                           radius: 40
@@ -88,8 +91,8 @@ lvgl:
                           pressed:
                             bg_color: color_black
                             shadow_width: 6
-                        pad_column: 40
-                        pad_row: 30
+                        pad_column: 20
+                        pad_row: 20
                         rows:
                           - buttons:
                               - text: 1
