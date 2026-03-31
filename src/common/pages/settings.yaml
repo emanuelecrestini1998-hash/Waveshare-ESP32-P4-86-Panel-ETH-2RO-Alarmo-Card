@@ -1,0 +1,121 @@
+lvgl:
+  pages:
+    - id: settings_page
+      bg_color: color_black
+      scrollable: false
+      widgets:
+        - obj:
+            id: settings_widget
+            hidden: true
+            width: 660
+            height: 330
+            align: top_mid
+            clickable: false
+            radius: 30
+            pad_all: 0
+            bg_color: color_slate_blue_gray
+            bg_opa: transp
+            border_opa: transp
+            border_width: 0
+            shadow_opa: transp
+            widgets:
+              - obj:
+                  id: backlight_settings_brightness_background
+                  width: 330
+                  height: 330
+                  align: top_left
+                  clickable: false
+                  radius: 30
+                  pad_all: 0
+                  bg_color: color_slate_blue_gray
+                  border_opa: transp
+                  border_width: 0
+                  shadow_opa: transp
+                  widgets:
+                    - label:  
+                        id: backlight_settings_brightness_label
+                        y: 30
+                        align: top_mid
+                        text_font: nunito_28
+                        text_color: color_misty_blue
+                        text: "Backlight"
+                    - slider:
+                        id: backlight_settings_brightness_slider
+                        y: -30
+                        radius: 15
+                        bg_color: color_gray
+                        align: bottom_mid
+                        width: 60
+                        height: 210
+                        min_value: 35
+                        max_value: 100
+                        value: 100
+                        indicator:
+                          bg_color: color_misty_blue
+                          radius: 15
+                        knob:
+                          bg_opa: transp
+                        on_release:
+                          - light.turn_on:
+                              id: display_backlight
+                              brightness: !lambda return int(x)/ 100.0;
+              - obj:
+                  id: backlight_settings_sleep_time_background
+                  width: 330
+                  height: 330
+                  align: top_right
+                  clickable: false
+                  radius: 30
+                  pad_all: 0
+                  bg_color: color_slate_blue_gray
+                  border_opa: transp
+                  border_width: 0
+                  shadow_opa: transp
+                  widgets:
+                    - label:  
+                        id: backlight_settings_sleep_time_label
+                        y: 30
+                        align: top_mid
+                        text_font: nunito_28
+                        text_color: color_misty_blue
+                        text: "Sleep time"
+                    - roller:
+                        id: backlight_settings_sleep_time_roller
+                        y: 15
+                        width: 210
+                        align: center
+                        bg_opa: transp
+                        border_opa: transp
+                        shadow_opa: transp
+                        text_font: nunito_30
+                        text_color: color_steel_blue
+                        text_line_space: 6
+                        selected:
+                          bg_opa: transp
+                          text_font: nunito_30
+                          text_color: color_misty_blue
+                        selected_index: !lambda return id(display_timeout);
+                        options:
+                          - Never
+                          - 1 minute
+                          - 5 minutes
+                          - 10 minutes
+                          - 30 minutes
+                          - 1 hour
+                          - 6 hours
+                          - 12 hours
+                        visible_row_count: 1
+                        on_value:
+                            then:
+                              - number.set:
+                                  id: display_timeout_backlight
+                                  value: !lambda |-
+                                    static const int backlight_time[] = {-1, 1, 5, 10, 30, 60, 360, 720};
+                                    return backlight_time[x];
+                              - globals.set:
+                                  id: display_timeout
+                                  value: !lambda return x;
+                              - delay: 300ms
+                              - lambda: |-
+                                  ESP_LOGI("TEST", "Current DT global: %d", id(display_timeout));
+
