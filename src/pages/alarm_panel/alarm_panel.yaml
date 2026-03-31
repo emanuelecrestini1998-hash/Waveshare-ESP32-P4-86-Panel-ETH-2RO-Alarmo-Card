@@ -1,0 +1,230 @@
+globals:
+  - id: current_language
+    type: std::string
+    initial_value: '"${secondary_language}"'
+    restore_value: yes
+
+  - id: display_lock
+    type: bool
+    restore_value: yes
+    initial_value: 'false'
+
+  - id: display_timeout
+    type: int
+    restore_value: yes
+    initial_value: '2'
+
+number:
+  - platform: template
+    id: display_timeout_backlight
+    name: Backlight timeout
+    optimistic: true
+    unit_of_measurement: "m"
+    initial_value: 10
+    restore_value: true
+    min_value: -1
+    max_value: 720
+    step: 1
+    mode: box
+    
+lvgl:
+  pages:
+    - id: alarmo_card_page
+      bg_color: color_black
+      widgets:
+        - obj:
+            id: alarmo_card_page_keypad
+            x: 15
+            y: 15
+            width: 450
+            height: 595
+            pad_all: 0
+            align: top_left
+            bg_color: color_slate_blue_gray
+            shadow_opa: transp
+            border_opa: transp
+            border_width: 0
+            radius: 15
+            widgets:
+              - label:
+                  y: 25
+                  width: 300
+                  height: 65
+                  id: alarmo_card_keypad_code_label
+                  align: top_mid
+                  text_font: nunito_28
+                  text: "Enter password"
+                  bg_color: color_steel_blue
+                  bg_opa: cover
+                  text_color: color_slate_blue_gray
+                  text_align: center
+                  radius: 15
+                  shadow_width: 12
+                  shadow_spread: 3
+                  shadow_ofs_y: 0
+                  shadow_color: color_black
+                  shadow_opa: cover
+                  pad_top: 15
+              - obj:
+                  width: 180 
+                  height: 2   
+                  bg_color: color_slate_blue_gray 
+                  bg_opa: cover
+                  border_width: 0
+                  align: TOP_MID
+                  y: 75
+              - buttonmatrix:
+                        id: alarmo_card_keypad_buttonmatrix
+                        width: 450
+                        height: 490
+                        pad_all: 20
+                        bg_opa: transp
+                        border_opa: transp
+                        y: 45
+                        align: center
+                        items:
+                          radius: 40
+                          bg_opa: transp
+                          border_opa: transp
+                          shadow_width: 12
+                          shadow_spread: 3
+                          shadow_ofs_y: 0
+                          shadow_color: color_black
+                          shadow_opa: cover
+                          text_font: montserrat_20
+                          text_color: color_misty_blue
+                          pressed:
+                            bg_color: color_black
+                            shadow_width: 6
+                        pad_column: 20
+                        pad_row: 20
+                        rows:
+                          - buttons:
+                              - text: 1
+                                control:
+                                  no_repeat: true
+                              - text: 2
+                                control:
+                                  no_repeat: true
+                              - text: 3
+                                control:
+                                  no_repeat: true
+                          - buttons:
+                              - text: 4
+                                control:
+                                  no_repeat: true
+                              - text: 5
+                                control:
+                                  no_repeat: true
+                              - text: 6
+                                control:
+                                  no_repeat: true
+                          - buttons:
+                              - text: 7
+                                control:
+                                  no_repeat: true
+                              - text: 8
+                                control:
+                                  no_repeat: true
+                              - text: 9
+                                control:
+                                  no_repeat: true
+                          - buttons:
+                              - text: "\uF55A"
+                                key_code: "*"
+                                control:
+                                  no_repeat: true
+                              - text: 0
+                                control:
+                                  no_repeat: true
+                              - text: "\uF00C"
+                                key_code: "#"
+                                control:
+                                  no_repeat: true
+
+        - obj:
+            id: alarmo_card_badge_status
+            x: -15
+            y: 15
+            width: 225
+            height: 225
+            pad_all: 0
+            align: top_right
+            bg_color: color_slate_blue_gray
+            shadow_opa: transp
+            border_opa: transp
+            border_width: 0
+            radius: 15
+            widgets:
+               # Alarm status
+              - label:
+                  id: alarm_status_img
+                  align: center
+                  text: "${shield_disarmed_icon}"
+                  text_color: color_steel_blue
+                  text_font: mdi_icons_78
+        - obj:
+            id: alarmo_card_alarm_buttons
+            x: -15
+            y: 255
+            width: 225
+            height: 355
+            pad_all: 0
+            align: top_right
+            bg_color: color_slate_blue_gray
+            shadow_opa: transp
+            border_opa: transp
+            border_width: 0
+            radius: 15
+        - obj:
+            id: menu_controls_background
+            x: 0
+            y: -15
+            width: 690
+            height: 80
+            pad_all: 0
+            align: bottom_mid
+            bg_color: color_slate_blue_gray
+            shadow_opa: transp
+            border_opa: transp
+            border_width: 0
+            radius: 15
+            widgets:
+               # Wi-Fi status
+              - label:
+                  id: wifi_status
+                  align: left_mid
+                  x: 30
+                  text: "${wifi_100_icon}"
+                  text_color: color_steel_blue
+                  text_font: icons_36
+
+              # Home Assistant status
+              - label:
+                  id: ha_status
+                  align: left_mid
+                  x: 90
+                  text: "${ha_icon}"
+                  text_color: color_steel_blue
+                  text_font: mdi_icons_36
+
+
+              - button:
+                  id: settings_widget_btn
+                  clickable: true
+                  x: -15
+                  width: 75
+                  height: 75
+                  align: right_mid
+                  bg_opa: transp
+                  shadow_opa: transp
+                  widgets:
+                    - label:
+                        align: center
+                        text_color: color_misty_blue
+                        text_font: mdi_icons_42
+                        text: "${settings_icon}"
+                  #on_click:
+                  #  - script.execute:
+                  #      id: switch_to_mode
+                  #      target_mode: 3
