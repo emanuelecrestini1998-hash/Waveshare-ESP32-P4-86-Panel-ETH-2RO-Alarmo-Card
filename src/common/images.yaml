@@ -23,14 +23,14 @@
 - file: 'assets/images/flags/gb.png'
   id: flags_gb_img
   type: rgb565
-  resize: 60x90  # 40x60 * 1.5
+  resize: 80x120  # 40x60 * 2
   byte_order: little_endian
   transparency: alpha_channel
 
 - file: 'assets/images/flags/it.png'
   id: flags_it_img
   type: rgb565
-  resize: 60x90  # 40x60 * 1.5
+  resize: 80x120  # 40x60 * 2
   byte_order: little_endian
   transparency: alpha_channel
 
