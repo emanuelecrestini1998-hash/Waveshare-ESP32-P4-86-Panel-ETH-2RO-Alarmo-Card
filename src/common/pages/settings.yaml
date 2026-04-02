@@ -12,7 +12,7 @@ lvgl:
             bg_color: color_steel_blue
             bg_opa: cover
             width: 690
-            height: 640
+            height: 650
             shadow_opa: transp
             border_opa: transp
             border_width: 0
@@ -167,7 +167,7 @@ lvgl:
               - obj:
                   id: info_widget
                   width: 660
-                  height: 270
+                  height: 280
                   align: bottom_mid
                   clickable: false
                   radius: 15
@@ -177,6 +177,87 @@ lvgl:
                   border_opa: transp
                   border_width: 0
                   shadow_opa: transp
+                  widgets:
+                    - label:
+                        x: 30
+                        y: 10
+                        id: info_widget_cpu_label
+                        align: top_left
+                        text_font: nunito_28
+                        text_color: color_misty_blue
+                        text: "CPU"
+                    - label:
+                        x: -30
+                        y: 10
+                        id: info_widget_cpu_state_value
+                        align: top_right
+                        text_font: nunito_28
+                        text_color: color_misty_blue
+                        text: "38.5°"
+                    - label:  
+                        id: wifi_signal_info_label
+                        x: 30
+                        y: 60
+                        align: top_left
+                        text_font: nunito_28
+                        text_color: color_misty_blue
+                        text: "WiFi Signal:"
+                    - label:  
+                        id: wifi_signal_info_state
+                        x: -30
+                        y: 60
+                        align: top_right
+                        text_font: nunito_28
+                        text_color: color_misty_blue
+                        text: "-59 dBm"
+                    - label:  
+                        id: ip_address_info_label
+                        x: 30
+                        y: 115
+                        align: top_left
+                        text_font: nunito_28
+                        text_color: color_misty_blue
+                        text: "IP Address:"
+                    - label:  
+                        id: ip_address_info_state
+                        x: -30
+                        y: 115
+                        align: top_right
+                        text_font: nunito_28
+                        text_color: color_misty_blue
+                        text: "192.168.0.10"
+                    - label:  
+                        id: mac_address_info_label
+                        x: 30
+                        y: 170
+                        align: top_left
+                        text_font: nunito_28
+                        text_color: color_misty_blue
+                        text: "MAC Address:"
+                    - label:  
+                        id: mac_address_info_state
+                        x: -30
+                        y: 170
+                        align: top_right
+                        text_font: nunito_28
+                        text_color: color_misty_blue
+                        text: "12:34:56:78:90:AB"
+                    - label:  
+                        id: esphome_version_info_label
+                        x: 30
+                        y: 225
+                        align: top_left
+                        text_font: nunito_28
+                        text_color: color_misty_blue
+                        text: "ESPHome Version:"
+                    - label:  
+                        id: esphome_version_info_state
+                        x: -30
+                        y: 225
+                        align: top_right
+                        text_font: nunito_28
+                        text_color: color_misty_blue
+                        text: "2026.2.4"
         # back
         - obj:
             id: back_button_container

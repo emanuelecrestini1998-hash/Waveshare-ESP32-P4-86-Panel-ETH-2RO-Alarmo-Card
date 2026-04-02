@@ -1,4 +1,5 @@
 packages:
+  sensors: !include common/pages/sensors.yaml
   loading: !include common/pages/loading.yaml
   settings: !include common/pages/settings.yaml
   alarm_panel: !include pages/alarm_panel/alarm_panel.yaml
