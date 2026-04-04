@@ -7,7 +7,7 @@ sensor:
     on_value:
       then:
         - lvgl.label.update:
-            id: circle_info_widget_cpu_state_value
+            id: info_widget_cpu_state_value
             text:
               format: "%.1f°"
               args: [id(esp32_temperature).state]
