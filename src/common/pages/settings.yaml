@@ -69,10 +69,10 @@ lvgl:
                                 radius: 15
                               knob:
                                 bg_opa: transp
-                              #on_release:
-                              #  - light.turn_on:
-                              #      id: display_backlight
-                              #      brightness: !lambda return int(x)/ 100.0;
+                              on_release:
+                                - light.turn_on:
+                                    id: display_backlight
+                                    brightness: !lambda return int(x)/ 100.0;
                     - obj:
                         id: backlight_settings_languages_background
                         width: 315
@@ -151,19 +151,19 @@ lvgl:
                                 - 6 hours
                                 - 12 hours
                               visible_row_count: 2
-                              #on_value:
-                              #    then:
-                              #      - number.set:
-                              #          id: display_timeout_backlight
-                              #          value: !lambda |-
-                              #            static const int backlight_time[] = {-1, 1, 5, 10, 30, 60, 360, 720};
-                              #            return backlight_time[x];
-                              #      - globals.set:
-                              #          id: display_timeout
-                              #          value: !lambda return x;
-                              #      - delay: 300ms
-                              #      - lambda: |-
-                              #          ESP_LOGI("TEST", "Current DT global: %d", id(display_timeout));
+                              on_value:
+                                  then:
+                                    - number.set:
+                                        id: display_timeout_backlight
+                                        value: !lambda |-
+                                          static const int backlight_time[] = {-1, 1, 5, 10, 30, 60, 360, 720};
+                                          return backlight_time[x];
+                                    - globals.set:
+                                        id: display_timeout
+                                        value: !lambda return x;
+                                    - delay: 300ms
+                                    - lambda: |-
+                                        ESP_LOGI("TEST", "Current DT global: %d", id(display_timeout));
               - obj:
                   id: info_widget
                   width: 660
