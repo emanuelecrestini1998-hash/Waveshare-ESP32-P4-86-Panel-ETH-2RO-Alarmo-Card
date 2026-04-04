@@ -17,6 +17,10 @@ ota:
 settings:
   backlight: "Retroilluminazione"
   sleep_time: "Tempo di standby"
+  wifi_signal: "Segnale WiFi"
+  ip_address: "Indirizzo IP"
+  mac_address: "Indirizzo MAC"
+  esphome_version: "Versione ESPHome"
 
 sleep_time:
   never: "Mai"

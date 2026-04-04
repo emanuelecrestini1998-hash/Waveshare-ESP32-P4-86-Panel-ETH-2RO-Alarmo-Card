@@ -286,3 +286,54 @@ lvgl:
             #on_click:
             #  - lvgl.widget.hide: alarm_panel_select_widget
             #  - lvgl.page.show: alarmo_card_page
+
+######TODO decommentare quando verrano gestite le traduzioni dinamiche
+#script:
+#
+#  - id: update_settings_translations
+#    then:
+#      - lvgl.label.update:
+#          id: backlight_settings_brightness_label
+#          text: !lambda |-
+#            return id(i18n_translations).translate("settings.backlight");
+#      - lvgl.label.update:
+#          id: backlight_settings_sleep_time_label
+#          text: !lambda |-
+#            return id(i18n_translations).translate("settings.sleep_time");
+#      - lvgl.label.update:
+#          id: wifi_signal_info_label
+#          text: !lambda |-
+#            return id(i18n_translations).translate("settings.wifi_signal");
+#      - lvgl.label.update:
+#          id: ip_address_info_label
+#          text: !lambda |-
+#            return id(i18n_translations).translate("settings.ip_address");
+#      - lvgl.label.update:
+#          id: mac_address_info_label
+#          text: !lambda |-
+#            return id(i18n_translations).translate("settings.mac_address");
+#      - lvgl.label.update:
+#          id: esphome_version_info_label
+#          text: !lambda |-
+#            return id(i18n_translations).translate("settings.esphome_version");
+#               
+#      - lambda: |-
+#          lv_obj_t *roller_obj = id(backlight_settings_sleep_time_roller).obj;
+#          if (roller_obj == nullptr) {
+#            return;
+#          }
+#
+#          uint16_t old_selection = lv_roller_get_selected(roller_obj);
+#
+#          std::string options = 
+#            id(i18n_translations).translate("sleep_time.never") + "\n" +
+#            id(i18n_translations).translate("sleep_time.minute1") + "\n" +
+#            id(i18n_translations).translate("sleep_time.minute5") + "\n" +
+#            id(i18n_translations).translate("sleep_time.minute10") + "\n" +
+#            id(i18n_translations).translate("sleep_time.minute30") + "\n" +
+#            id(i18n_translations).translate("sleep_time.hour1") + "\n" +
+#            id(i18n_translations).translate("sleep_time.hour6") + "\n" +
+#            id(i18n_translations).translate("sleep_time.hour12");
+#
+#          lv_roller_set_options(roller_obj, options.c_str(), LV_ROLLER_MODE_NORMAL);
+#          lv_roller_set_selected(roller_obj, old_selection, LV_ANIM_OFF);

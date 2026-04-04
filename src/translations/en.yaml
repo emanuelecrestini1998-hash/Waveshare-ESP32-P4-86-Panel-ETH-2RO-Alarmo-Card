@@ -17,6 +17,10 @@ ota:
 settings:
   backlight: "Backlight"
   sleep_time: "Sleep time"
+  wifi_signal: "WiFi signal"
+  ip_address: "IP address"
+  mac_address: "MAC address"
+  esphome_version: "ESPHome version"
 
 sleep_time:
   never: "Never"
